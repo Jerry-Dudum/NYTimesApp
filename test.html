@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>New York Times</title>
+</head>
+
+<body>
+    <!-- <form></form> -->
+    <form id="search-form">
+            <label for="search-input">Search</label>
+            <input type="text" id="search-input"><br>
+
+            <label for="number-input">Number of records to retrive</label>
+            <input type="text" id="number-input"><br>
+
+            <label for="start-input">Start Year</label>
+            <input type="text" id="start-input"><br>
+
+            <label for="end-input">End Year</label>
+            <input type="text" id="end-input"><br>
+            </form>
+  <button id="search-button">Search Term</button>
+  <button id="clear-button">Clear</button>
+
+  <div id="articles">
+
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Event listener of id of cat-button
+    $("#search-button").on("click", function(event) {
+        event.preventDefault();
+        var search = $("#search-input").val().trim();
+        var start = $("#start-input").val().trim();
+        var end = $("#end-input").val().trim();
+        var numberOfRecords = $("#number-input").val().trim();
+      // An URL string assigned to queryURL
+      if(start === "" && end === ""){
+        var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ search +"&api-key=Y8Pp6fak747GzhErHVymE1ceC4GIzjox";
+     
+      }
+      else{
+        var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ search +"&api-key=Y8Pp6fak747GzhErHVymE1ceC4GIzjox&facet_fields=source&facet=true&begin_date=" + start + "&end_date=" + end;
+      }
+      // AJAX method that requests to queryURL
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      // the response is got upon request
+        .then(function(response) {
+            console.log(response);
+            var articles = response.response.docs;
+
+            // console.log(articles[4]);
+            for(var i=0;i<numberOfRecords;i++)
+            {
+                console.log(articles[i].headline.print_headline);
+                console.log(articles[i].snippet);
+                console.log(articles[i].byline.original);
+                var newDiv = $("<div>");
+                newDiv.addClass("article");
+                var headline = articles[i].headline.print_headline;
+                var snippet = articles[i].snippet;
+                var original = articles[i].byline.original;
+                var link = articles[i].web_url;
+
+                newDiv.append("<p>" + headline + "</p>");
+                newDiv.append("<p>" + snippet + "</p>");
+                newDiv.append("<p>" + original + "</p>");
+                // newDiv.append("<a href=" + link + "</a>");
+                newDiv.append($("<a>").attr("href",link).text("Go To Article"));
+
+                $("#articles").append(newDiv);
+
+            }
+            $("#clear-button").on("click",function(){
+
+                $("#search-input").val("");
+                $("#number-input").val("");
+                $("#start-input").val("");
+                $("#end-input").val("");
+                $("#articles").empty();
+            });
+
+
+        // image URL response from API is assigned to variable
+        //   var imageUrl = response.data.image_original_url;
+
+        //   // JQuery to create a image tag assigned to catImage variable
+        //   var catImage = $("<img>");
+
+        //   // Adding attributes src and alt
+        //   catImage.attr("src", imageUrl);
+        //   catImage.attr("alt", "cat image");
+        //   catImage.attr("width","125px");
+        //   catImage.attr("height","125px");
+        //   // Prepending the response created new tag to "images" div
+        //   $("#images").prepend(catImage);
+
+
+          // var image = $("<input>");
+          // image.attr("type","image");
+          // image.attr("src",imageUrl);
+          //image.attr("data-name","cats");
+          // $("#images").prepend(image);
+        });
+    });
+  </script>
+</body>
+
+</html>
