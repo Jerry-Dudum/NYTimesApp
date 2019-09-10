@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>NYT SEARCH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center" style="padding: 40px">
+            <a class="navbar-brand" href="#"
+                style="font-size: 60px; color: white; background: rgb(12, 22, 68); width: 1000px; text-align: center;"><img src="Newspaper-icon.png" alt= Newspaper style="height: 60px; width: 60px; background-color: white"> New York
+                Times Search</a>
+        </nav>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-body" style="background: rgba(29, 28, 28, 0.9); color: white;"><img src="calendar.jpg" style="height: 30px; width: 30px;">
+                Search Parameters
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="search-input">Search Term:</label>
+                        <input type="text" class="form-control" id="search-input">
+                    </div>
+                    <br>
+                    <select class="custom-select custom-select-sm" id="number-input">
+                        <option selected>Number of Records to Retrieve:</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <br> <br>
+                    <div class="form-group">
+                        <label for="start-input">Start Year (Optional):</label>
+                        <input type="text" class="form-control" id="start-input" placeholder="YYYMMDD">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="end-input">End Year (Optional):</label>
+                        <input type="text" class="form-control" id="end-input" placeholder="YYYMMDD">
+                    </div>
+                    <button type="button" style="color:black; background: none; border:none;" id="search-button"><img src="search.png" style="height: 30px; width: 30px;">Search</button>
+                    <button type="button" style="color:black; background: none; border:none;" id="clear-button"><img src="trash-can.jpg" style="height: 30px; width: 30px;">Clear Results</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card border-light mb-3" style="max-width: 70rem;">
+            <div class="card-header">Top Articles</div>
+            <div class="card-body">
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <div class="fixed-bottom">
+            <nav class="navbar navbar-light bg-light">
+                    <a class="navbar-brand" href="#" style="margin: 0 auto;">Made with lots and lots of <img src="heart.jpg" style="height: 30px; width: 30px;"></a>
+                  </nav>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
