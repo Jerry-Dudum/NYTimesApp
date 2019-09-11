@@ -36,13 +36,12 @@ $("#search-button").on("click", function (event) {
                 var original = articles[i].byline.original;
                 var link = articles[i].web_url;
 
-                newDiv.append("<p>" + headline + "</p>");
+                newDiv.append("<p>" + headline + " " + original + "</p>");
                 newDiv.append("<p>" + snippet + "</p>");
-                newDiv.append("<p>" + original + "</p>");
-                // newDiv.append("<a href=" + link + "</a>");
                 newDiv.append($("<a>").attr("href", link).text("Go To Article"));
+                newDiv.append("<hr>");
 
-                $("#articles").append(newDiv);
+                $("#articles").prepend(newDiv);
 
             }
             $("#clear-button").on("click", function () {
@@ -56,3 +55,6 @@ $("#search-button").on("click", function (event) {
 
         });
 });
+
+
+
